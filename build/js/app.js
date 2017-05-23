@@ -14,17 +14,18 @@ Temperature.prototype.Fahrenheit = function () {
 exports.moduleTemperature = Temperature;
 
 },{}],2:[function(require,module,exports){
+
 var Temperature = require("./../js/temperature.js");
 
 var apiKey="0e3e8dcdb1c6921977c47f5900f0d7d2";
 
 $(function() {
-  $("#weather").click(function() {
+  $("#humidity").click(function() {
     var city = $("#location").val();
     $("#location").val("");
-    $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey)
-         .then(function(response) {
-             $('.showWeather').text("The humidity in " + city + " is " + response.main.humidity + "%");
+    $.get("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey)
+     .then(function(response) {
+      $('.show-humidity').text(city + " currently has " + response.main.humidity + "% humidity.");
       console.log(JSON.stringify(response));
 
     });
