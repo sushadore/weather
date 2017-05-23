@@ -7,10 +7,9 @@ $(function() {
     var city = $("#location").val();
     $("#location").val("");
     $.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
-    .then(function(response) {
-      $('.showWeather').text(`${city} currently has ${response.main.humidity}% humidity.`);
-      console.log(JSON.stringify(response));
-
+        .then(function(response) {
+          $('.showWeather').text(`${city} currently has ${response.main.humidity}% humidity.`);
+          console.log(JSON.stringify(response));
     });
   });
 });

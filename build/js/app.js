@@ -10,7 +10,8 @@ Temperature.prototype.Celsius = function() {
 Temperature.prototype.Fahrenheit = function () {
   return this * 1.8 - 459.67;
 };
- exports.temperatureModule = Temperature
+
+exports.moduleTemperature = Temperature;
 
 },{}],2:[function(require,module,exports){
 var Temperature = require("./../js/temperature.js");
@@ -21,9 +22,9 @@ $(function() {
   $("#weather").click(function() {
     var city = $("#location").val();
     $("#location").val("");
-    $.get("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey)
-    .then(function(response) {
-      $('.showWeather').text(`${city} currently has ${response.main.humidity}% humidity.`);
+    $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=' + apiKey)
+         .then(function(response) {
+             $('.showWeather').text("The humidity in " + city + " is " + response.main.humidity + "%");
       console.log(JSON.stringify(response));
 
     });

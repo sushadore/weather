@@ -9,4 +9,5 @@ Temperature.prototype.Celsius = function() {
 Temperature.prototype.Fahrenheit = function () {
   return this * 1.8 - 459.67;
 };
- exports.temperatureModule = Temperature
+
+exports.moduleTemperature = Temperature;
